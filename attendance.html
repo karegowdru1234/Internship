@@ -1,0 +1,24 @@
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Face</th>
+</tr>
+
+{% for row in records %}
+<tr>
+    <td>{{ row[1] }}</td>
+    <td>{{ row[2] }}</td>
+    <td>{{ row[3] }}</td>
+    <td>
+        {% if row[4] %}
+<img src="{{ url_for('static', filename='captured_faces/' + row[4]) }}" width="80">
+{% else %}
+No Image
+{% endif %}
+    </td>
+</tr>
+{% endfor %}
+
+</table>
